@@ -89,8 +89,8 @@ function Tagger() {
             type="text"
           />
           <FormControlLabel
-            control={<Checkbox id="isQuoted" color="primary" />}
-            label="Quoted"
+            control={<Checkbox id="isBrackets" color="primary" />}
+            label="Brackets"
             onChange={textInputEvent}
           />
           <FormControlLabel
@@ -99,8 +99,13 @@ function Tagger() {
             onChange={textInputEvent}
           />
           <FormControlLabel
-            control={<Checkbox id="isBrackets" color="primary" />}
-            label="Brackets"
+            control={<Checkbox id="isQuoted" color="primary" />}
+            label="Quoted"
+            onChange={textInputEvent}
+          />
+          <FormControlLabel
+            control={<Checkbox id="isSorted" color="primary" />}
+            label="Sort"
             onChange={textInputEvent}
           />
         </form>
@@ -136,11 +141,14 @@ async function textInputEvent(event) {
   if (document.getElementById("isLowercase").checked) {
     words = words.map((x) => x.toLowerCase());
   }
+  if (document.getElementById("isSorted").checked) {
+    words = words.sort();
+  }
 
   words = words.join(", ");
 
   if (document.getElementById("isBrackets").checked) {
-    words = `[${words}]`
+    words = `[${words}]`;
   }
 
   document.getElementById("keywords").value = words;
@@ -165,7 +173,9 @@ function getKeywordsFromText(text) {
 
       let words = file.data.keywords
         .map((x) => toString(x.matches[0].node))
-        .filter((x) => !ignoredWords.includes(x));
+        .filter((x) => x.length > 2)
+        .filter((x) => x.match(/^[a-z0-9]+$/i))
+        .filter((x) => !ignoredWords.includes(x.toLowerCase()));
 
       resolve(words);
     }
