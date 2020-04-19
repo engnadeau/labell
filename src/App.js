@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { ignoredWords } from "./words";
 import Box from "@material-ui/core/Box";
 import Checkbox from "@material-ui/core/Checkbox";
 import Container from "@material-ui/core/Container";
@@ -151,7 +152,11 @@ function getKeywordsFromText(text) {
 
     function done(err, file) {
       if (err) throw err;
-      let words = file.data.keywords.map((x) => toString(x.matches[0].node));
+
+      let words = file.data.keywords
+        .map((x) => toString(x.matches[0].node))
+        .filter((x) => !ignoredWords.includes(x));
+
       resolve(words);
     }
   });
