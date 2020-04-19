@@ -137,6 +137,10 @@ async function textInputEvent(event) {
 
 function getKeywordsFromText(text, maximum = 5) {
   return new Promise((resolve) => {
+    let doc = nlp(text);
+    doc.contractions().expand();
+    text = doc.nouns().toSingular().out("array").join(" ");
+
     retext()
       .use(english)
       .use(urls)
