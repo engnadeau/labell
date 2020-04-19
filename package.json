@@ -10,6 +10,7 @@
     "nlcst-to-string": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-helmet": "^6.0.0",
     "react-scripts": "3.4.1",
     "retext": "^7.0.1",
     "retext-english": "^3.0.4",
