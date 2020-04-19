@@ -1,18 +1,21 @@
-import _ from "lodash";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Checkbox from "@material-ui/core/Checkbox";
 import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import english from "retext-english";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import keywords from "retext-keywords";
 import Link from "@material-ui/core/Link";
+import mentions from "retext-syntax-mentions";
+import nlp from "compromise";
 import pos from "retext-pos";
 import React from "react";
 import retext from "retext";
 import TextField from "@material-ui/core/TextField";
 import toString from "nlcst-to-string";
 import Typography from "@material-ui/core/Typography";
+import urls from "retext-syntax-urls";
 
 function Copyright() {
   return (
