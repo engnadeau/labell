@@ -147,7 +147,7 @@ function getKeywordsFromText(text) {
       .use(urls)
       .use(mentions)
       .use(pos)
-      .use(keywords)
+      .use(keywords, { maximum: 10 })
       .process(text, done);
 
     function done(err, file) {
