@@ -138,10 +138,11 @@ async function textInputEvent(event) {
 function getKeywordsFromText(text, maximum = 5) {
   return new Promise((resolve) => {
     retext()
+      .use(english)
+      .use(urls)
+      .use(mentions)
       .use(pos)
-      .use(keywords, {
-        maximum,
-      })
+      .use(keywords)
       .process(text, done);
 
     function done(err, file) {
