@@ -131,7 +131,7 @@ async function textInputEvent(event) {
     words = words.map((x) => x.toLowerCase());
   }
 
-  words = _.join(words, ", ");
+  words = words.join(", ");
   document.getElementById("keywords").value = words;
 }
 
