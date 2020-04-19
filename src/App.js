@@ -98,6 +98,11 @@ function Tagger() {
             label="Lowercase"
             onChange={textInputEvent}
           />
+          <FormControlLabel
+            control={<Checkbox id="isBrackets" color="primary" />}
+            label="Brackets"
+            onChange={textInputEvent}
+          />
         </form>
       </div>
     </Container>
@@ -133,6 +138,11 @@ async function textInputEvent(event) {
   }
 
   words = words.join(", ");
+
+  if (document.getElementById("isBrackets").checked) {
+    words = `[${words}]`
+  }
+
   document.getElementById("keywords").value = words;
 }
 
