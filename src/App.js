@@ -135,7 +135,7 @@ async function textInputEvent(event) {
   document.getElementById("keywords").value = words;
 }
 
-function getKeywordsFromText(text, maximum = 5) {
+function getKeywordsFromText(text) {
   return new Promise((resolve) => {
     let doc = nlp(text);
     doc.contractions().expand();
