@@ -13,9 +13,10 @@ ReactDOM.render(
     <React.StrictMode>
       <CssBaseline />
       <SEO
-      title="Labell | Nicholas Nadeau"
-      image={process.env.PUBLIC_URL + '/logo512.png'} description="Enter text; get keywords, tags, and labels using natural language processing (NLP)"
-      url="https://labell.now.sh/"
+        title="Labell | Nicholas Nadeau"
+        image={process.env.PUBLIC_URL + "/logo512.png"}
+        description="Enter text; get keywords, tags, and labels using natural language processing (NLP)"
+        url="https://labell.now.sh/"
       />
       <App />
     </React.StrictMode>
